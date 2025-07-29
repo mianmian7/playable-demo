@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "超跑竞速游戏",
+    "description": "体验极速驾驶的乐趣，在城市街道上驰骋！",
+    "adPath": "/ads/super-car-racing/index.html"
+  },
+  {
+    "id": 2,
+    "title": "糖果消除传奇",
+    "description": "匹配相同颜色的糖果，完成挑战获得高分！",
+    "adPath": "/ads/candy-crush/index.html"
+  },
+  {
+    "id": 3,
+    "title": "太空射击大战",
+    "description": "驾驶星际战舰，消灭外星入侵者，保卫地球！",
+    "adPath": "/ads/space-shooter/index.html"
+  }
+]

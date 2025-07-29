@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超跑竞速游戏</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: white;
+        }
+        .game-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+        }
+        .game-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .game-info {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .play-button {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        .play-button:hover {
+            transform: scale(1.05);
+        }
+        .car-emoji {
+            font-size: 4rem;
+            margin: 1rem 0;
+            animation: drive 2s ease-in-out infinite;
+        }
+        @keyframes drive {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(20px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1 class="game-title">🏎️ 超跑竞速游戏</h1>
+        <div class="car-emoji">🚗</div>
+        <p class="game-info">准备好体验极速驾驶的乐趣了吗？</p>
+        <button class="play-button" onclick="startGame()">开始游戏</button>
+    </div>
+    
+    <script>
+        function startGame() {
+            alert('🎮 游戏即将开始！准备好在城市街道上驰骋吧！');
+        }
+    </script>
+</body>
+</html>

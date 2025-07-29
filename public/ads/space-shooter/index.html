@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太空射击大战</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s ease-in-out infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        .game-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            z-index: 1;
+            position: relative;
+        }
+        .game-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .game-info {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .play-button {
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+        }
+        .play-button:hover {
+            transform: scale(1.05);
+        }
+        .spaceship {
+            font-size: 4rem;
+            margin: 1rem 0;
+            animation: fly 3s ease-in-out infinite;
+        }
+        @keyframes fly {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(15px) rotate(5deg); }
+            75% { transform: translateX(-15px) rotate(-5deg); }
+        }
+        .alien {
+            font-size: 2rem;
+            animation: float 2s ease-in-out infinite;
+            display: inline-block;
+            margin: 0 0.5rem;
+        }
+        .alien:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        .alien:nth-child(3) {
+            animation-delay: 1s;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="game-container">
+        <h1 class="game-title">🚀 太空射击大战</h1>
+        <div class="spaceship">🛸</div>
+        <p class="game-info">消灭外星入侵者，保卫地球！</p>
+        <div>
+            <span class="alien">👽</span>
+            <span class="alien">👾</span>
+            <span class="alien">🤖</span>
+        </div>
+        <button class="play-button" onclick="startGame()">开始游戏</button>
+    </div>
+    
+    <script>
+        // 创建星星背景
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = star.style.height = Math.random() * 3 + 1 + 'px';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        function startGame() {
+            alert('🎮 游戏即将开始！准备好消灭外星入侵者了吗？');
+        }
+        
+        createStars();
+    </script>
+</body>
+</html>

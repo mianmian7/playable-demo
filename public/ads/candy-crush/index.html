@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>糖果消除传奇</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: white;
+        }
+        .game-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+        }
+        .game-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .game-info {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .play-button {
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+        }
+        .play-button:hover {
+            transform: scale(1.05);
+        }
+        .candy-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 1rem 0;
+            max-width: 200px;
+        }
+        .candy {
+            font-size: 2rem;
+            animation: bounce 1s ease-in-out infinite;
+        }
+        .candy:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+        .candy:nth-child(even) {
+            animation-delay: 0.4s;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1 class="game-title">🍬 糖果消除传奇</h1>
+        <div class="candy-grid">
+            <div class="candy">🍭</div>
+            <div class="candy">🍬</div>
+            <div class="candy">🍫</div>
+            <div class="candy">🍩</div>
+        </div>
+        <p class="game-info">匹配相同颜色的糖果，完成挑战获得高分！</p>
+        <button class="play-button" onclick="startGame()">开始游戏</button>
+    </div>
+    
+    <script>
+        function startGame() {
+            alert('🎮 游戏即将开始！准备好消除糖果获得高分了吗？');
+        }
+    </script>
+</body>
+</html>
