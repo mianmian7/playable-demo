@@ -8,15 +8,35 @@ interface AdData {
 }
 
 async function getAdsData(): Promise<AdData[]> {
-  const adsResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ''}/data/ads.json`, {
-    cache: 'no-store',
-  });
-  
-  if (!adsResponse.ok) {
-    throw new Error('Failed to fetch ads data');
+  try {
+    // 在服务器端直接读取文件，而不是通过 fetch
+    const adsData = require('../../../public/data/ads.json');
+    return adsData;
+  } catch (error) {
+    // 如果 require 失败，尝试 fetch 方法
+    try {
+      const adsResponse = await fetch('/data/ads.json', {
+        cache: 'no-store',
+      });
+      
+      if (!adsResponse.ok) {
+        throw new Error('Failed to fetch ads data');
+      }
+      
+      return adsResponse.json();
+    } catch (fetchError) {
+      console.error('Error loading ads data:', fetchError);
+      // 返回默认数据作为备用
+      return [
+        {
+          id: 1,
+          title: "示例游戏",
+          description: "这是一个示例游戏广告",
+          adPath: "/ads/sample/index.html"
+        }
+      ];
+    }
   }
-  
-  return adsResponse.json();
 }
 
 export default async function Home() {
