@@ -1,6 +1,13 @@
 import PlayableAd from '@/components/PlayableAd';
 
-async function getAdsData() {
+interface AdData {
+  id: number;
+  title: string;
+  description: string;
+  adPath: string;
+}
+
+async function getAdsData(): Promise<AdData[]> {
   const adsResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ''}/data/ads.json`, {
     cache: 'no-store',
   });
@@ -26,7 +33,7 @@ export default async function Home() {
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {ads.map((ad: any) => (
+          {ads.map((ad: AdData) => (
             <PlayableAd
               key={ad.id}
               title={ad.title}
